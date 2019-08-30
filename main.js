@@ -3,13 +3,14 @@ const express = require('express')
 const fs = require('fs')
 const Gpio = require('orange-pi-gpio')
 
-let gpio5 = new Gpio({
-  pin: 5, mode: 'out', ready: function ()
+const AC1 = new Gpio({
+  pin: 8, ready: () =>
   {
-    let value = 1
-    setInterval(function ()
+    let value = 0
+    setTimeout(() =>
     {
-      gpio5.write(value)
+      console.log(value ? 'Ligando' : 'Desligando' + ' AC 1')
+      AC1.write(value)
       value = +!value
     }, 50)
   }
