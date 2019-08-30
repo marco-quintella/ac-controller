@@ -1,0 +1,9 @@
+{
+  "name": "ac-controller",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/marco-quintella/ac-controller",
+  "author": "Marco Quintella",
+  "license": "MIT",
+  "private": true
+}
