@@ -12,6 +12,6 @@ const AC1 = new Gpio({
       console.log(value ? 'Ligando' : 'Desligando' + ' AC 1')
       AC1.write(value)
       value = +!value
-    }, 50)
+    }, 1000)
   }
 })
