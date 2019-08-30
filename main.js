@@ -8,10 +8,11 @@ const AC1 = new Gpio({ pin: 8 })
 function pulsoAC1()
 {
   AC1.write(1)
+  console.log('Pulso AC1')
   setTimeout(() => { AC1.write(0) }, 1000)
 }
 
-cron.schedule('55 18 * * *', () =>
+cron.schedule('58 18 * * *', () =>
 {
   pulsoAC1()
 })
