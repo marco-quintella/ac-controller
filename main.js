@@ -1,6 +1,18 @@
-const scheduler = require('node-schedule')
+const cron = require('node-cron')
+const express = require('express')
+const fs = require('fs')
 const Gpio = require('orange-pi-gpio')
 
+const AC1 = new Gpio({ pin: 8 })
 
+function pulsoAC1()
+{
+  AC1.write(1)
+  console.log('Pulso AC1')
+  setTimeout(() => { AC1.write(0) }, 1000)
+}
 
-schedule.scheduleJob({hour: 7, minute:45, dayOfWeek: 1 }, )
+cron.schedule('58 18 * * *', () =>
+{
+  pulsoAC1()
+})
