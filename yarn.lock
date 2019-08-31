@@ -55,6 +55,11 @@ object-keys@^1.0.12:
   resolved "https://registry.yarnpkg.com/object-keys/-/object-keys-1.1.1.tgz#1c47f272df277f3b1daf061677d9c82e2322c60e"
   integrity sha512-NuAESUOUMrlIXOfHKzD6bpPu3tYt3xvjNdRIQ+FeT0lNb4K8WR70CaDxhuNguS2XG+GjkyMwOzsN5ZktImfhLA==
 
+orange-pi-gpio@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/orange-pi-gpio/-/orange-pi-gpio-1.0.2.tgz#34bf58af52b7e8dba3cf5ecc55b252dcc627328c"
+  integrity sha1-NL9Yr1K36Nujz17MVbJS3MYnMow=
+
 sorted-array-functions@^1.0.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/sorted-array-functions/-/sorted-array-functions-1.2.0.tgz#43265b21d6e985b7df31621b1c11cc68d8efc7c3"
