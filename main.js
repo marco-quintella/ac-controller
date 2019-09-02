@@ -36,12 +36,9 @@ data.days.forEach(obj =>
   })
 })
 
-cron.schedule('25 14 * * *', () =>
+cron.schedule('39 14 * * *', () =>
 {
-  console.log('14:25')
+  console.log('14:39')
   pulsoAC1()
   pulsoAC2()
 })
-
-pulsoAC1()
-pulsoAC2()
