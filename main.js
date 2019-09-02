@@ -28,9 +28,13 @@ for (let i = 0; i < data.days.length; i++)
   const obj = data.days[i]
   for (let j = 0; i < obj.hours.length; j++)
   {
+<<<<<<< HEAD
     const hour = obj.hours[j]
     console.log(`Schedulling ${ hour.time } * * ${ obj.day }`)
     cron.schedule(`${ hour.time } * * ${ obj.day }`, function ()
+=======
+    cron.schedule(`${ hour.time } * * ${ obj.day }`, () =>
+>>>>>>> parent of c094fff... logging the times to check for compliance
     {
       data.ACs.AC1.status !== hour.AC1 && pulsoAC1()
       data.ACs.AC2.status !== hour.AC2 && pulsoAC2()
