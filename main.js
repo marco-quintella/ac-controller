@@ -39,7 +39,7 @@ for (let i = 0; i < data.days.length; i++)
 }
 
 
-cron.schedule('04 14 * * *', function ()
+cron.schedule('10 14 * * *', function ()
 {
   pulsoAC1()
 })
