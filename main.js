@@ -4,8 +4,6 @@ const fs = require('fs')
 const Gpio = require('orange-pi-gpio')
 const data = JSON.parse(fs.readFileSync('times.json', 'utf-8'))
 
-console.log(data)
-
 const AC1 = new Gpio({ pin: 8 })
 const AC2 = new Gpio({ pin: 9 })
 
