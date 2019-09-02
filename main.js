@@ -9,17 +9,17 @@ const AC2 = new Gpio({ pin: 9 })
 
 function pulsoAC1()
 {
-  AC1.write(1)
+  AC1.write(0)
   console.log('Pulso AC1')
-  setTimeout(() => { AC1.write(0) }, 1000)
+  setTimeout(() => { AC1.write(1) }, 1000)
   data.ACs.AC1.status = !data.ACs.AC1.status
 }
 
 function pulsoAC2()
 {
-  AC2.write(1)
+  AC2.write(0)
   console.log('Pulso AC2')
-  setTimeout(function () { AC2.write(0) }, 1000)
+  setTimeout(function () { AC2.write(1) }, 1000)
   data.ACs.AC2.status = !data.ACs.AC2.status
 }
 
@@ -39,7 +39,7 @@ for (let i = 0; i < data.days.length; i++)
 }
 
 
-cron.schedule('52 13 * * *', function ()
+cron.schedule('04 14 * * *', function ()
 {
   pulsoAC1()
 })
