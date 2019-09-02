@@ -9,43 +9,31 @@ const AC2 = new Gpio({ pin: 9 })
 
 function pulsoAC1()
 {
-  AC1.write(0)
+  AC1.write(1)
   console.log('Pulso AC1')
-  setTimeout(() => { AC1.write(1) }, 1000)
+  setTimeout(() => { AC1.write(0) }, 1000)
   data.ACs.AC1.status = !data.ACs.AC1.status
 }
 
 function pulsoAC2()
 {
-  AC2.write(0)
+  AC2.write(1)
   console.log('Pulso AC2')
-  setTimeout(function () { AC2.write(1) }, 1000)
+  setTimeout(() => { AC2.write(0) }, 1000)
   data.ACs.AC2.status = !data.ACs.AC2.status
 }
 
-for (let i = 0; i < data.days.length; i++)
+data.days.forEach(obj =>
 {
-  const obj = data.days[i]
-  for (let j = 0; i < obj.hours.length; j++)
+  obj.hours.forEach(hour =>
   {
-<<<<<<< HEAD
-    const hour = obj.hours[j]
     console.log(`Schedulling ${ hour.time } * * ${ obj.day }`)
-    cron.schedule(`${ hour.time } * * ${ obj.day }`, function ()
-=======
     cron.schedule(`${ hour.time } * * ${ obj.day }`, () =>
->>>>>>> parent of c094fff... logging the times to check for compliance
     {
       data.ACs.AC1.status !== hour.AC1 && pulsoAC1()
       data.ACs.AC2.status !== hour.AC2 && pulsoAC2()
     })
-  }
-}
-
-
-cron.schedule('10 14 * * *', function ()
-{
-  pulsoAC1()
+  })
 })
 
 cron.schedule('22 14 * * *', () =>
