@@ -42,3 +42,6 @@ cron.schedule('25 14 * * *', () =>
   pulsoAC1()
   pulsoAC2()
 })
+
+pulsoAC1()
+pulsoAC2()
