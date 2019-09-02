@@ -27,6 +27,7 @@ data.days.forEach(obj =>
 {
   obj.hours.forEach(hour =>
   {
+    console.log(`Schedulling ${ hour.time } * * ${ obj.day }`)
     cron.schedule(`${ hour.time } * * ${ obj.day }`, () =>
     {
       data.ACs.AC1.status !== hour.AC1 && pulsoAC1()
