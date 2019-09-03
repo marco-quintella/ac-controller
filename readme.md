@@ -1,16 +1,26 @@
-# AC-CONTROLLER
----
-A personal project for controlling an Air Conditioning
-System composed by two Remote Controlled Units. The control
-is made by an Orange Pi One mini computer, running an
-Armbian OS, with 5v dual channel relay.
----
+# Quasar App (ac)
 
-## Application
----
-The platform is an node express application with node
-cron-jobs and orange-pi-gpio library.
----
-There will be an Web served PWA for controlling the desired
-times and start stop operation.
----
+A Quasar Framework app
+
+## Install the dependencies
+```bash
+yarn
+```
+
+### Start the app in development mode (hot-code reloading, error reporting, etc.)
+```bash
+quasar dev
+```
+
+### Lint the files
+```bash
+yarn run lint
+```
+
+### Build the app for production
+```bash
+quasar build
+```
+
+### Customize the configuration
+See [Configuring quasar.conf.js](https://quasar.dev/quasar-cli/quasar-conf-js).
