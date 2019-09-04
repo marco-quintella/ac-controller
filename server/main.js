@@ -62,10 +62,12 @@ app.get('/jobs', function (req, res) {
 
 app.get('/operaac1', function (req, res) {
   pulsoAC1()
+  res.send(true)
 })
 
 app.get('/operaac2', function (req, res) {
   pulsoAC2()
+  res.send(true)
 })
 
 app.listen(80)
