@@ -2,9 +2,11 @@ const cron = require('node-cron')
 const express = require('express')
 const fs = require('fs')
 const Gpio = require('orange-pi-gpio')
+const cors = require('cors')
 const data = JSON.parse(fs.readFileSync('times.json', 'utf-8'))
 
 const app = new express()
+app.use(cors())
 
 const AC1 = new Gpio({ pin: 8 })
 const AC2 = new Gpio({ pin: 9 })
