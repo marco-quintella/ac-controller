@@ -20,7 +20,7 @@ function pulsoAC1() {
   console.log('Pulso AC1: ' + Date())
   setTimeout(() => { AC1.write(1) }, 1000)
   data.ACs.AC1.status = !data.ACs.AC1.status
-  fs.writeFile('times.json', data, 'utf-8', function (error) {
+  fs.writeFile('times.json', JSON.stringify(data), 'utf-8', function (error) {
     console.log(error ? 'Erro ao gravar aquivo de AC 1: ' + error : 'AC 1 operado com sucesso')
   })
 }
@@ -30,7 +30,7 @@ function pulsoAC2() {
   console.log('Pulso AC2: ' + Date())
   setTimeout(() => { AC2.write(1) }, 1000)
   data.ACs.AC2.status = !data.ACs.AC2.status
-  fs.writeFile('times.json', data, 'utf-8', function (error) {
+  fs.writeFile('times.json', JSON.stringify(data), 'utf-8', function (error) {
     console.log(error ? 'Erro ao gravar aquivo de AC 2: ' + error : 'AC 2 operado com sucesso')
   })
 }
