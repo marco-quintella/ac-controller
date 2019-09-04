@@ -6,7 +6,7 @@
     "orange-pi-gpio": "^1.0.2"
   },
   "scripts": {
-    "start": "nodemon node main.js -w main.js"
+    "start": "node main.js -w main.js"
   },
   "name": "ac-controller",
   "version": "1.0.0",
@@ -14,8 +14,5 @@
   "repository": "https://github.com/marco-quintella/ac-controller",
   "author": "Marco Quintella",
   "license": "MIT",
-  "private": true,
-  "devDependencies": {
-    "nodemon": "^1.19.1"
-  }
+  "private": true
 }
