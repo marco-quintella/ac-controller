@@ -70,4 +70,28 @@ app.get('/operaac2', function (req, res) {
   res.send(true)
 })
 
+app.get('/editar', function (req, res) {
+  const editarId = req.params.job.id
+  jobs[editarId] = req.params.job
+  cronjobs[editarId].stop()
+  cronjobs[editarId] = cron.schedule(
+    req.params.job.string,
+    () => {
+      data.ACs.AC1.status !== hour.AC1 && pulsoAC1()
+      data.ACs.AC2.status !== hour.AC2 && pulsoAC2()
+    }
+  )
+  cronjobs[editarId].start()
+  console.log('Schedulling ' + req.params.job.string)
+  const dados = req.params.job.string.split(' ')
+  const dia = dados.days.filter(day => day.day === dados[4])
+  res.send(dia)
+})
+
+app.get('/excluir', function (req, res) {
+  const editarId = req.params.job.id
+  cronjobs[editarId].destroy()
+
+})
+
 app.listen(80)

@@ -10,8 +10,8 @@
     </q-page-container>
     <q-footer>
       <div class="row">
-        <q-btn flat class="col">Aparelhos</q-btn>
-        <q-btn flat class="col">Horários</q-btn>
+        <q-btn flat class="col" to='/'>Aparelhos</q-btn>
+        <q-btn flat class="col" to='/horarios'>Horários</q-btn>
         <q-btn flat class="col">Config</q-btn>
       </div>
     </q-footer>
