@@ -67,15 +67,19 @@ export default {
   watch: {
     data: {
       handler (newData) {
-        this.ac1 = newData.ACs.AC1
-        this.ac2 = newData.ACs.AC2
+        this.ac1 = newData.ACs.AC1 || ''
+        this.ac2 = newData.ACs.AC2 || ''
       },
       immediate: true
     }
   },
   methods: {
     opera (ac) {
+      const url = 'http://189.50.88.218:85/opera' + ac
+      Axios.get(url)
+        .then(() => {
 
+        })
     }
   }
 }

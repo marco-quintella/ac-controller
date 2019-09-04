@@ -68,12 +68,24 @@ app.get('/jobs', function (req, res) {
   res.send(jobs)
 })
 
-app.get('/operaAc1', function (req, res) {
+app.get('/operaac1', function (req, res) {
   pulsoAC1()
+    .then(() => {
+      res.send(data)
+    })
+    .catch(error => {
+      res.send(error)
+    })
 })
 
-app.get('/operaAc2', function (req, res) {
+app.get('/operaac2', function (req, res) {
   pulsoAC2()
+    .then(() => {
+      res.send(data)
+    })
+    .catch(error => {
+      res.send(error)
+    })
 })
 
 app.listen(80)
