@@ -91,7 +91,6 @@ app.get('/editar', function (req, res) {
 app.get('/excluir', function (req, res) {
   const editarId = req.params.job.id
   cronjobs[editarId].destroy()
-
 })
 
 app.listen(80)
