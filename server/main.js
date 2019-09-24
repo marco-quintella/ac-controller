@@ -81,6 +81,7 @@ app.get('/operaac2', function (req, res) {
 
 app.post('/editar', function (req, res) {
   data = req.params.data
+  console.log(data)
   cronjobs.forEach(job => {
     job.stop()
   })
