@@ -19,7 +19,8 @@ module.exports = function (ctx) {
       // 'fontawesome-v5',
       // 'eva-icons',
       // 'themify',
-      // 'roboto-font-latin-ext', // this or either 'roboto-font', NEVER both!
+      // 'roboto-font-latin-ext',
+      // this or either 'roboto-font', NEVER both!
 
       'roboto-font', // optional, you are not bound to it
       'material-icons' // optional, you are not bound to it
@@ -29,31 +30,7 @@ module.exports = function (ctx) {
       // iconSet: 'ionicons-v4',
       // lang: 'de', // Quasar language
 
-      // all: true, // --- includes everything; for dev only!
-
-      components: [
-        'QLayout',
-        'QHeader',
-        'QDrawer',
-        'QPageContainer',
-        'QPage',
-        'QToolbar',
-        'QToolbarTitle',
-        'QBtn',
-        'QIcon',
-        'QList',
-        'QItem',
-        'QItemSection',
-        'QItemLabel',
-        'QFooter',
-        'QBtnToggle',
-        'QCard',
-        'QCardSection',
-        'QCardActions',
-        'QDialog',
-        'QForm',
-        'QInput'
-      ],
+      all: 'auto', // --- includes everything; for dev only!
 
       directives: [
         'Ripple'

@@ -12,15 +12,15 @@
     "start": "quasar build -m pwa"
   },
   "dependencies": {
-    "@quasar/extras": "^1.0.0",
+    "@quasar/extras": "^1.3.2",
     "axios": "^0.18.1",
     "node-cron": "^2.0.3",
     "orange-pi-gpio": "^1.0.2",
-    "quasar": "^1.0.0"
+    "quasar": "^1.1.4"
   },
   "devDependencies": {
+    "@quasar/app": "^1.1.2",
     "@quasar/cli": "^1.0.0",
-    "@quasar/app": "^1.0.0",
     "@vue/eslint-config-standard": "^4.0.0",
     "babel-eslint": "^10.0.1",
     "eslint": "^5.10.0",

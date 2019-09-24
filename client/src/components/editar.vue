@@ -3,7 +3,7 @@
     <q-card class="q-dialog-plugin">
       <q-form ref="form" @submit.prevent="submit">
         <q-card-section>
-          <q-input v-model="jobEditado.string" label="String de Controle" />
+          <q-input v-model="day.day" label="String de Controle" />
         </q-card-section>
         <q-card-actions align="right">
           <q-btn color="primary" label="OK" @click="onOKClick" />
@@ -15,29 +15,25 @@
 </template>
 
 <script>
-import Axios from 'axios'
+// import Axios from 'axios'
 
 export default {
   name: 'Editar',
   props: {
     job: Object,
-    operacao: String
+    operacao: String,
+    day: Object
   },
   data () {
     return {
-      jobEditado: {
-        id: 0,
-        string: ''
+      dayEditado: {
+        day: '',
+        hours: []
       }
     }
   },
   methods: {
     submit () {
-      Axios.get('http://189.50.88.218:85/editar', {
-        params: {
-          job: this.jobEditado
-        }
-      })
     },
 
     // following method is REQUIRED
@@ -76,9 +72,9 @@ export default {
     }
   },
   watch: {
-    job: {
-      handler (newJob) {
-        if (this.operacao === 'editar') this.jobEditado = newJob
+    day: {
+      handler (newDay) {
+        this.dayEditado = newDay
       },
       immediate: true
     }

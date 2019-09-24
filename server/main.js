@@ -35,18 +35,27 @@ function pulsoAC2() {
   })
 }
 
-data.days.forEach(obj => {
-  obj.hours.forEach(hour => {
-    const string = `${hour.time} * * ${obj.day}`
-    console.log('Schedulling ' + string)
-    cronjobs.push(cron.schedule(string, () => {
-      data.ACs.AC1.status !== hour.AC1 && pulsoAC1()
-      data.ACs.AC2.status !== hour.AC2 && pulsoAC2()
-    }))
-    jobs.push({ id: id, string: string })
-    id++
+function jobArrayGen () {
+  jobs = []
+  cronjobs = []
+  
+  data.days.forEach(obj => {
+    obj.hours.forEach(hour => {
+      const string = `${hour.time} * * ${obj.day}`
+      console.log('Schedulling ' + string)
+
+      cronjobs.push(cron.schedule(string, () => {
+        data.ACs.AC1.status !== hour.AC1 && pulsoAC1()
+        data.ACs.AC2.status !== hour.AC2 && pulsoAC2()
+      }))
+      
+      jobs.push({ id: id, string: string, AC1: hour.AC1, AC2: hour.AC2 })
+      id++
+    })
   })
-})
+}
+
+jobArrayGen()
 
 cronjobs.forEach(job => {
   job.start()
@@ -71,26 +80,23 @@ app.get('/operaac2', function (req, res) {
 })
 
 app.get('/editar', function (req, res) {
-  const editarId = req.params.job.id
-  jobs[editarId] = req.params.job
-  cronjobs[editarId].stop()
-  cronjobs[editarId] = cron.schedule(
-    req.params.job.string,
-    () => {
-      data.ACs.AC1.status !== hour.AC1 && pulsoAC1()
-      data.ACs.AC2.status !== hour.AC2 && pulsoAC2()
-    }
-  )
-  cronjobs[editarId].start()
-  console.log('Schedulling ' + req.params.job.string)
-  const dados = req.params.job.string.split(' ')
-  const dia = dados.days.filter(day => day.day === dados[4])
-  res.send(dia)
-})
+  data = req.params.data
+  cronjobs.forEach(job => {
+    job.stop()
+  })
 
-app.get('/excluir', function (req, res) {
-  const editarId = req.params.job.id
-  cronjobs[editarId].destroy()
+  jobs = []
+  cronjobs = []
+  jobArrayGen()
+  cronjobs.forEach(job => {
+    job.start()
+  })
+
+  fs.writeFile('times.json', JSON.stringify(data), 'utf-8', function (error) {
+    console.log(error ? 'Erro ao gravar aquivo de edição: ' + error : 'Data editado com sucesso')
+  })
+  
+  res.send(data)
 })
 
 app.listen(80)

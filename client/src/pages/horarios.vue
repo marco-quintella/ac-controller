@@ -1,10 +1,25 @@
 <template>
   <q-page padding>
-    <q-list bordered separator class="rounded-borders">
-      <q-item v-for="job in jobs" :key="job.id" clickable v-ripple @click="editar(job, 'editar')">
-        <q-item-section>{{ job.string }}</q-item-section>
-      </q-item>
-    </q-list>
+    <div class="row justify">
+      <q-btn label='Salvar' class='full-width' color='positive' @click='salvar' />
+    </div>
+      <div class="row col" v-for="day in data.days" :key="day.day">
+        <div class="row col">
+          <q-input v-model='day.day' outlined class="full-width q-my-md " />
+        </div>
+        <q-list bordered separator class="rounded-borders row">
+          <q-item v-for="hour in day.hours" :key="day.day + hour.time">
+            <q-item-section>
+              <q-input v-model='hour.time' dense />
+            </q-item-section>
+            <q-item-section>
+              <q-checkbox v-model='hour.AC1' label='AC 1' />
+              <q-checkbox v-model='hour.AC2' label='AC 2' />
+            </q-item-section>
+          </q-item>
+          <q-separator />
+        </q-list>
+      </div>
   </q-page>
 </template>
 
@@ -15,23 +30,36 @@ export default {
   name: 'Horarios',
   data () {
     return {
-      jobs: []
+      ac1: {
+        status: true
+      },
+      ac2: {
+        status: true
+      },
+      data: {}
     }
   },
   created () {
-    Axios.get('http://189.50.88.218:85/jobs')
-      .then(result => {
-        this.jobs = result.data
-      })
+    Axios.get('http://189.50.88.218:85/data').then(result => {
+      this.data = result.data
+    })
   },
   methods: {
-    editar (job, operacao) {
+    editar (day, operacao) {
       this.$q.dialog({
         component: Editar,
         root: this.$root,
-        job: job,
+        day: day,
         operacao: operacao
       })
+    },
+    salvar () {
+      this.$q.loading.show()
+      Axios.get('http://189.50.88.218:85/editar').then(result => {
+        this.data = result.data
+      })
+        .catch(error => console.log(error))
+        .finally(this.$q.loading.hide())
     }
   }
 }
