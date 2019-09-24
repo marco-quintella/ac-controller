@@ -17,11 +17,6 @@
           "AC2": true
         },
         {
-          "time": "00 09",
-          "AC1": true,
-          "AC2": false
-        },
-        {
           "time": "45 11",
           "AC1": true,
           "AC2": true
@@ -42,7 +37,7 @@
           "AC2": false
         },
         {
-          "time": "00 19",
+          "time": "45 18",
           "AC1": true,
           "AC2": true
         },
@@ -67,10 +62,20 @@
           "AC2": true
         },
         {
-          "time": "00 09",
+          "time": "30 09",
           "AC1": true,
           "AC2": false
         },
+        {
+          "time": "30 11",
+          "AC1": true,
+          "AC2": true
+        },
+        {
+          "time": "30 13",
+          "AC1": true,
+          "AC2": false
+        }
         {
           "time": "30 14",
           "AC1": true,
@@ -78,11 +83,6 @@
         },
         {
           "time": "45 17",
-          "AC1": true,
-          "AC2": false
-        },
-        {
-          "time": "00 19",
           "AC1": true,
           "AC2": true
         },
