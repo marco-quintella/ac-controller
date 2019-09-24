@@ -3,7 +3,7 @@ const express = require('express')
 const fs = require('fs')
 const Gpio = require('orange-pi-gpio')
 const cors = require('cors')
-const data = JSON.parse(fs.readFileSync('times.json', 'utf-8'))
+let data = JSON.parse(fs.readFileSync('times.json', 'utf-8'))
 
 const app = new express()
 app.use(cors())
