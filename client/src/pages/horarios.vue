@@ -30,12 +30,6 @@ export default {
   name: 'Horarios',
   data () {
     return {
-      ac1: {
-        status: true
-      },
-      ac2: {
-        status: true
-      },
       data: {}
     }
   },
@@ -55,7 +49,9 @@ export default {
     },
     salvar () {
       this.$q.loading.show()
-      Axios.get('http://189.50.88.218:85/editar').then(result => {
+      Axios.post('http://189.50.88.218:85/editar', {
+        params: this.data
+      }).then(result => {
         this.data = result.data
       })
         .finally(this.$q.loading.hide())
