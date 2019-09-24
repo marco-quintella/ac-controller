@@ -49,9 +49,13 @@ export default {
     },
     salvar () {
       this.$q.loading.show()
-      Axios.post('http://189.50.88.218:85/editar', this.data).then(result => {
-        this.data = result.data
-      })
+      Axios({
+        method: 'post',
+        url: 'http://189.50.88.218:85/editar',
+        data: this.data })
+        .then(result => {
+          this.data = result.data
+        })
         .finally(this.$q.loading.hide())
     }
   }
