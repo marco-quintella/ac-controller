@@ -58,7 +58,6 @@ export default {
       Axios.get('http://189.50.88.218:85/editar').then(result => {
         this.data = result.data
       })
-        .catch(error => console.log(error))
         .finally(this.$q.loading.hide())
     }
   }
