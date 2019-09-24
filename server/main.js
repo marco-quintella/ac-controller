@@ -11,8 +11,8 @@ app.use(cors())
 const AC1 = new Gpio({ pin: 8 })
 const AC2 = new Gpio({ pin: 9 })
 
-const cronjobs = []
-const jobs = []
+let cronjobs = []
+let jobs = []
 let id = 0
 
 function pulsoAC1() {
